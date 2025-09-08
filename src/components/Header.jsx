@@ -3,9 +3,13 @@ import "./header.css";
 
 export function Header({ cart }) {
   let totalQuantity = 0;
-  cart.forEach((cartItem) => {
-    totalQuantity += cartItem.quantity;
+
+  cart.forEach((cart) => {
+    cart.items.forEach((cartItem) => {
+      totalQuantity += cartItem.quantity;
+    });
   });
+  console.log(totalQuantity);
   return (
     <>
       <div className="header">

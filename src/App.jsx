@@ -10,7 +10,7 @@ import axios from "axios";
 function App() {
   const [cart, setCart] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:3001/cart/all").then((response) => {
+    axios.get("http://localhost:3001/carts").then((response) => {
       setCart(response.data);
     });
   }, []);
