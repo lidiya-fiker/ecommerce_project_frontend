@@ -8,11 +8,14 @@ import { money } from "../../utils/money";
 export function OrdersPage({ cart }) {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/orders?expand=products")
-      .then((resposnse) => {
-        setOrders(resposnse.data);
-      });
+    const fetchOrdersData = async () => {
+      const response = await axios.get(
+        "http://localhost:3001/orders?expand=products",
+      );
+
+      setOrders(response.data);
+    };
+    fetchOrdersData();
   }, []);
 
   return (

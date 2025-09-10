@@ -10,10 +10,14 @@ import { HomePage } from "./pages/home/HomePage";
 
 function App() {
   const [cart, setCart] = useState([]);
+
   useEffect(() => {
-    axios.get("http://localhost:3001/carts").then((response) => {
+    const fetchAppData = async () => {
+      const response = await axios.get("http://localhost:3001/carts");
       setCart(response.data);
-    });
+    };
+    
+    fetchAppData();
   }, []);
 
   return (
